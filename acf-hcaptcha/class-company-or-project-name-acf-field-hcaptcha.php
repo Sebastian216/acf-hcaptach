@@ -8,9 +8,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * PREFIX_acf_field_FIELD_NAME class.
+ * company_or_project_name_acf_field_hcaptcha class.
  */
-class PREFIX_acf_field_FIELD_NAME extends \acf_field {
+class company_or_project_name_acf_field_hcaptcha extends \acf_field {
 	/**
 	 * Controls field type visibilty in REST requests.
 	 *
@@ -34,14 +34,14 @@ class PREFIX_acf_field_FIELD_NAME extends \acf_field {
 		 *
 		 * No spaces. Underscores allowed.
 		 */
-		$this->name = 'FIELD_NAME';
+		$this->name = 'hcaptcha';
 
 		/**
 		 * Field type label.
 		 *
 		 * For public-facing UI. May contain spaces.
 		 */
-		$this->label = __( 'FIELD_LABEL', 'TEXTDOMAIN' );
+		$this->label = __( 'hCaptcha', 'hcaptcha-wordpress-plugin' );
 
 		/**
 		 * The category the field appears within in the field type picker.
@@ -61,15 +61,15 @@ class PREFIX_acf_field_FIELD_NAME extends \acf_field {
 		 * Allows JS strings to be translated in PHP and loaded in JS via:
 		 *
 		 * ```js
-		 * const errorMessage = acf._e("FIELD_NAME", "error");
+		 * const errorMessage = acf._e("hcaptcha", "error");
 		 * ```
 		 */
 		$this->l10n = array(
-			'error'	=> __( 'Error! Please enter a higher value', 'TEXTDOMAIN' ),
+			'error'	=> __( 'Error! Please enter a higher value', 'hcaptcha-wordpress-plugin' ),
 		);
 
 		$this->env = array(
-			'url'     => site_url( str_replace( ABSPATH, '', __DIR__ ) ), // URL to the acf-FIELD-NAME directory.
+			'url'     => site_url( str_replace( ABSPATH, '', __DIR__ ) ), // URL to the acf-hcaptcha directory.
 			'version' => '1.0', // Replace this with your theme or plugin version constant.
 		);
 
@@ -92,8 +92,8 @@ class PREFIX_acf_field_FIELD_NAME extends \acf_field {
 		acf_render_field_setting(
 			$field,
 			array(
-				'label'			=> __( 'Font Size','TEXTDOMAIN' ),
-				'instructions'	=> __( 'Customise the input font size','TEXTDOMAIN' ),
+				'label'			=> __( 'Font Size','hcaptcha-wordpress-plugin' ),
+				'instructions'	=> __( 'Customise the input font size','hcaptcha-wordpress-plugin' ),
 				'type'			=> 'number',
 				'name'			=> 'font_size',
 				'append'		=> 'px',
@@ -140,20 +140,20 @@ class PREFIX_acf_field_FIELD_NAME extends \acf_field {
 		$version = $this->env['version'];
 
 		wp_register_script(
-			'PREFIX-FIELD-NAME',
+			'company_or_project_name-hcaptcha',
 			"{$url}assets/js/field.js",
 			array( 'acf-input' ),
 			$version
 		);
 
 		wp_register_style(
-			'PREFIX-FIELD-NAME',
+			'company_or_project_name-hcaptcha',
 			"{$url}assets/css/field.css",
 			array( 'acf-input' ),
 			$version
 		);
 
-		wp_enqueue_script( 'PREFIX-FIELD-NAME' );
-		wp_enqueue_style( 'PREFIX-FIELD-NAME' );
+		wp_enqueue_script( 'company_or_project_name-hcaptcha' );
+		wp_enqueue_style( 'company_or_project_name-hcaptcha' );
 	}
 }
